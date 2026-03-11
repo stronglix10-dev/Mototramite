@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cesar Alejandro Simon - Cadete</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #F3F4F6;
+            color: #1F2937;
+            line-height: 1.6;
+        }
+
+        .poster-container {
+            width: 100%;
+            max-width: 720px;
+            min-height: 100vh;
+            margin: 0 auto;
+            background: #FFFFFF;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%);
+            color: white;
+            padding: 30px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-text h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .logo-text p {
+            font-size: 13px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.15);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .header-contact:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 60vh;
+            min-height: 300px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://sfile.chatglm.cn/images-ppt/b87f3b482b5e.png') center center;
+            background-size: cover;
+            opacity: 0.15;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.85) 0%, rgba(30, 64, 175, 0.75) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 40px;
+            max-width: 600px;
+        }
+
+        .hero h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 60px 40px;
+            background: #FFFFFF;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 32px;
+            color: #1E3A8A;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .section-title p {
+            color: #6B7280;
+            font-size: 16px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #F9FAFB;
+            border-radius: 12px;
+            padding: 30px;
+            border: 2px solid #E5E7EB;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            border-color: #1E3A8A;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.15);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .service-icon i {
+            font-size: 32px;
+            color: white;
+        }
+
+        .service-card h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            color: #1F2937;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: #6B7280;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            background: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%);
+            padding: 60px 40px;
+            color: white;
+        }
+
+        .why-choose .section-title h3 {
+            color: white;
+        }
+
+        .why-choose .section-title p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-icon i {
+            font-size: 40px;
+            color: white;
+        }
+
+        .feature-item h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .feature-item p {
+            font-size: 14px;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        /* Vehicle Section */
+        .vehicle-section {
+            padding: 60px 40px;
+            background: #FFFFFF;
+        }
+
+        .vehicle-wrapper {
+            background: linear-gradient(135deg, #F9FAFB 0%, #FFFFFF 100%);
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 2px solid #E5E7EB;
+            text-align: center;
+        }
+
+        .vehicle-wrapper h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 32px;
+            color: #1E3A8A;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .vehicle-wrapper > p {
+            color: #6B7280;
+            font-size: 16px;
+            margin-bottom: 35px;
+        }
+
+        .vehicle-image {
+            width: 100%;
+            max-width: 500px;
+            height: 350px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .vehicle-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .vehicle-info {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .vehicle-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #EFF6FF;
+            color: #1E3A8A;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .vehicle-badge i {
+            font-size: 20px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 60px 40px;
+            background: #FFFFFF;
+        }
+
+        .contact-wrapper {
+            background: linear-gradient(135deg, #F9FAFB 0%, #FFFFFF 100%);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 2px solid #E5E7EB;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .contact-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 15px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .contact-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .contact-details h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 26px;
+            color: #1E3A8A;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .contact-details p {
+            color: #6B7280;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #25D366;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .contact-schedule {
+            background: #EFF6FF;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 25px;
+        }
+
+        .schedule-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .schedule-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .schedule-item i {
+            color: #1E3A8A;
+            font-size: 24px;
+        }
+
+        .schedule-item span {
+            color: #1F2937;
+            font-size: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1F2937;
+            color: rgba(255,255,255,0.9);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .footer-content {
+            margin-bottom: 20px;
+        }
+
+        .footer h5 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .footer p {
+            font-size: 14px;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .footer-divider {
+            width: 60px;
+            height: 3px;
+            background: #25D366;
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .copyright {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 9999;
+            animation: pulse-wa 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float i {
+            font-size: 36px;
+            color: white;
+        }
+
+        @keyframes pulse-wa {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+            }
+            50% {
+                box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7);
+            }
+        }
+
+        /* Additional styling */
+        .badge {
+            display: inline-block;
+            background: rgba(37, 211, 102, 0.2);
+            color: #25D366;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            .vehicle-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .vehicle-image {
+                height: auto;
+            }
+            .contact-image {
+                width: 120px;
+                height: 120px;
+            }
+            /* reduce section padding on medium screens */
+            .services, .why-choose, .vehicle-section, .contact {
+                padding: 40px 20px;
+            }
+            .header {
+                padding: 20px 20px;
+            }
+            .footer {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            .hero h2 {
+                font-size: 36px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+            .hero-btn {
+                padding: 12px 24px;
+                font-size: 16px;
+            }
+            /* stack contact and vehicle sections even more tightly */
+            .contact-info, .vehicle-info {
+                gap: 8px;
+            }
+            .contact-image {
+                width: 100px;
+                height: 100px;
+            }
+            .services, .why-choose, .vehicle-section, .contact {
+                padding: 30px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="material-icons" style="font-size: 36px;">two_wheeler</i>
+                </div>
+                <div class="logo-text">
+                    <h1>Cesar Alejandro Simon</h1>
+                    <p>Cadete • Trámites y Mensajería</p>
+                </div>
+            </div>
+            <a href="https://wa.me/3853101433" class="header-contact">
+                <i class="material-icons">chat</i>
+                <span style="font-weight: 500;">WhatsApp</span>
+            </a>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <span class="badge" style="background: rgba(255,255,255,0.2); color: white;">Servicio Profesional</span>
+                <h2>Cadete</h2>
+                <p>Servicio de trámites y mensajería rápida y confiable</p>
+                <a href="https://wa.me/3853101433" class="hero-btn">
+                    <i class="material-icons">chat</i>
+                    Contáctanos Ahora
+                </a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services">
+            <div class="section-title">
+                <h3>Nuestros Servicios</h3>
+                <p>Gestión integral de trámites y mensajería</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="material-icons">local_shipping</i>
+                    </div>
+                    <h4>Mensajería</h4>
+                    <p>Entrega de documentos, paquetes y encargos de forma rápida y segura.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="material-icons">assignment</i>
+                    </div>
+                    <h4>Trámites</h4>
+                    <p>Gestión de documentos, pagos, bancos y trámites gubernamentales.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="material-icons">receipt_long</i>
+                    </div>
+                    <h4>Pagos y Cobranzas</h4>
+                    <p>Realizamos pagos de servicios, cobranzas y gestiones bancarias.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="material-icons">directions_bike</i>
+                    </div>
+                    <h4>Envíos Express</h4>
+                    <p>Servicio de entrega urgente en el día. Rapidez y eficiencia garantizada.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="why-choose">
+            <div class="section-title">
+                <h3>¿Por Qué Elegirnos?</h3>
+                <p>Compromiso y profesionalismo</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="material-icons">verified</i>
+                    </div>
+                    <h4>Profesionalismo</h4>
+                    <p>Servicio confiable y responsable</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="material-icons">speed</i>
+                    </div>
+                    <h4>Rapidez</h4>
+                    <p>Servicio ágil y eficiente</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="material-icons">support_agent</i>
+                    </div>
+                    <h4>Atención</h4>
+                    <p>Servicio personalizado</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vehicle Section -->
+        <section class="vehicle-section">
+            <div class="vehicle-wrapper">
+                <h3>Nuestro Vehículo</h3>
+                <p>Transporte seguro y eficiente para todos tus envíos</p>
+                <div class="vehicle-image">
+                    <img src="https://sfile.chatglm.cn/images-ppt/8a7a18b10a56.jpg" alt="Gilera Sahel Blanca">
+                </div>
+                <div class="vehicle-info">
+                    <div class="vehicle-badge">
+                        <i class="material-icons">two_wheeler</i>
+                        <span>Gilera Sahel Blanca</span>
+                    </div>
+                    <div class="vehicle-badge">
+                        <i class="material-icons">check_circle</i>
+                        <span>Confiable y Segura</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact">
+            <div class="section-title">
+                <h3>Contáctanos</h3>
+                <p>Estamos listos para ayudarte</p>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-image">
+                        <img src="https://sfile.chatglm.cn/images-ppt/f48d4610c56a.jpg" alt="Gilera Sahel">
+                    </div>
+                    <div class="contact-details">
+                        <h4>Cesar Alejandro Simon</h4>
+                        <p>Servicio profesional de cadete, trámites y mensajería</p>
+                        <a href="https://wa.me/3853101433" class="whatsapp-btn">
+                            <i class="material-icons">chat</i>
+                            WhatsApp: 3853101433
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-schedule">
+                    <div class="schedule-item">
+                        <i class="material-icons">schedule</i>
+                        <span><strong>Horario de Atención</strong></span>
+                    </div>
+                    <div class="schedule-item">
+                        <i class="material-icons">location_on</i>
+                        <span><strong>Disponibilidad:</strong> Servicio a domicilio</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <h5>Cesar Alejandro Simon</h5>
+                <p>Tu socio de confianza en trámites y mensajería</p>
+                <p style="margin-top: 10px;">WhatsApp: 3853101433</p>
+            </div>
+            <div class="footer-divider"></div>
+            <p class="copyright">© 2026 Cesar Alejandro Simon - Cadete. Todos los derechos reservados.</p>
+        </footer>
+
+        <!-- Floating WhatsApp Button -->
+        <a href="https://wa.me/3853101433" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+            <i class="material-icons">chat</i>
+        </a>
+    </div>
+</body>
+</html>
